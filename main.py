@@ -180,7 +180,7 @@ def agregar_producto():
 
     # La seccion tiene que ser de la misma categoria
     # que el producto que se esta agregando
-    if seccion.get_categoria != categoria:
+    if seccion.get_categoria() != categoria:
         print("La categoria de la seccion no concuerda con la del producto.")
         return
     
