@@ -121,16 +121,22 @@ def menu_bodega(bodega):
 
 # Metodos de mostrar
 def mostrar_productos():
+    print("\nLista de productos")
     for producto in lista_productos:
-        print(producto.get_nombre())
+        print(producto.get_nombre() + " (" + str(producto.get_cantidad()) + "), " + producto.get_categoria().get_nombre())
+    print("\n")
 
 def mostrar_categorias():
+    print("\nLista de categorias")
     for categoria in lista_categorias:
         print(categoria.get_nombre())
+    print("\n")
 
 def mostrar_bodegas():
+    print("\nLista de bodegas")
     for bodega in lista_bodegas:
         print(bodega.get_nombre())
+    print("\n")
 
 # Busquedas
 def buscar_categoria(nombre):
@@ -223,5 +229,39 @@ ropa = Categoria("Ropa")
 lista_categorias.append(abarrotes)
 lista_categorias.append(electrodomesticos)
 lista_categorias.append(ropa)
-    
+
+bodega1 = Bodega("Bodega1")
+seccion1 = Seccion(abarrotes, "1")
+seccion2 = Seccion(ropa, "2")
+bodega1.add_seccion(seccion1)
+bodega1.add_seccion(seccion2)
+
+bodega2 = Bodega("Bodega2")
+seccion3 = Seccion(electrodomesticos, "3")
+seccion4 = Seccion(abarrotes, "4")
+bodega2.add_seccion(seccion3)
+bodega2.add_seccion(seccion4)
+
+lista_bodegas.append(bodega1)
+lista_bodegas.append(bodega2)
+
+agua = Producto("Agua", abarrotes, 10, seccion1)
+arroz = Producto("Arroz", abarrotes, 14, seccion1)
+camisa = Producto("Camisa", ropa, 18, seccion2)
+pantalon = Producto("Pantalon", ropa, 15, seccion2)
+cocina = Producto("Cocina", electrodomesticos, 5, seccion3)
+refri = Producto("Refri", electrodomesticos, 3, seccion3)
+agua2 = Producto("Agua", abarrotes, 18, seccion4)
+frijoles = Producto("Frijoles", abarrotes, 19, seccion4)
+
+lista_productos.append(agua)
+lista_productos.append(arroz)
+lista_productos.append(camisa)
+lista_productos.append(pantalon)
+lista_productos.append(cocina)
+lista_productos.append(refri)
+lista_productos.append(agua2)
+lista_productos.append(frijoles)
+
+
 main_menu()
