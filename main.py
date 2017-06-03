@@ -173,6 +173,12 @@ def agregar_producto():
     if seccion is None:
         print("No se encontro la seccion en la bodega")
         return
+
+    # La seccion tiene que ser de la misma categoria
+    # que el producto que se esta agregando
+    if seccion.get_categoria != categoria:
+        print("La categoria de la seccion no concuerda con la del producto.")
+        return
     
     producto = Producto(nombre, categoria, cantidad, seccion)
     lista_productos.append(producto)
